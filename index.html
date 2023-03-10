@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas Treinando</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="button-container">
+        <div class="text-center">
+          <h1>Escolha um Programa</h1>
+          <button type="button" class="btn btn-primary btn-lg p-5 m-5" data-bs-toggle="modal" data-bs-target="#programaNumeros">1 - Programa Números</button>
+          <button class="btn btn-success btn-lg p-5 m-5" data-bs-toggle="modal" data-bs-target="#buscarEndereco">2 - Buscar Endereços VIACEP</button>
+          <button class="btn btn-danger btn-lg p-5 m-5" data-bs-toggle="modal" data-bs-target="#numerosPerfeitos">3 - Programa números Perfeitos ?</button>
+          <br>
+          <button class="btn btn-warning btn-lg p-5 m-5" data-bs-toggle="modal" data-bs-target="#programaTabuada">4 - Programa Tabuada</button>
+          <button class="btn btn-info btn-lg p-5 m-5" data-bs-toggle="modal" data-bs-target="#consultaSQL">5 - Consulta SQL</button>
+          <button class="btn btn-dark btn-lg p-5 m-5" data-bs-toggle="modal" data-bs-target="#creditos">Créditos</button>
+        </div>
+    </div>
+
+    <!-- MODAL PROGRAMA NUUMEROS -->
+    <div class="modal" id="programaNumeros" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Programa Números</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <span><strong>Adicione um número:</strong></span>
+              <br>
+              <input type="number" id="numeroInput">
+              <button class="btn btn-success" id="adicionarBtn">Adicionar</button>
+              <br>
+              <span><strong>Números Adicionados: </strong> <p id="numeroAdicionado"></p></span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="salvarNumeros()">Salvar números</button>
+            </div>
+          </div>
+        </div>
+    </div>
+<!-- MODAL PROGRAMA NUMEROS -->
+
+
+<!-- MODAL CONSUMO API CORREIOS -->
+<div class="modal" id="buscarEndereco" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Endereço pelo CEP - VIACEP</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span><strong>Digite um CEP:</strong></span>
+          <br>
+          <input type="text" id="cepViacep">
+          <button class="btn btn-success" id="pesquisarCEPViacep">Pesquisar</button>
+          <br>
+          <br>
+          <span><strong>Endereço: </strong></span>
+          <p id="enderecoViacep"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+</div>  
+<!-- MODAL CONSUMO API CORREIOS -->
+
+<!--MODAL PROGRAMA NÚMEROS PERFEITOS-->
+<div class="modal" id="numerosPerfeitos" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Programa números perfeitos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span><strong>Digite um numero:</strong></span>
+          <br>
+          <input type="number" id="numero">
+          <button class="btn btn-success" id="perguntarNumero">Numero é Perfeito ?</button>
+          <br>
+          <span><strong id="numeroPerfeito"> </strong></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!--MODAL PROGRAMA NÚMEROS PERFEITOS-->
+
+<!--MODAL PROGRAMA TABUADA-->
+<div class="modal" id="programaTabuada" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Programa Tabuada Numeros</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span><strong>Digite um numero:</strong></span>
+          <br>
+          <input type="number" id="numeroTabuada">
+          <button class="btn btn-success" id="tabuada">Mostrar Tabuada</button>
+          <br>
+          <span><strong id="mostraTabuada"> </strong></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!--MODAL PROGRAMA TABUADA-->
+
+<!--MODAL CONSULTA SQL-->
+<div class="modal" id="consultaSQL" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Consulta SQL</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <span>
+                Faça uma consulta de SQL-Server que exibi a idade em anos a partir da
+                seguinte variável: DECLARE @nasc as varchar(11)='17/04/2008'
+            </span>
+            <br>
+            <br>
+            <strong>CONSULTA : </strong>
+            <p>
+                DECLARE @nasc as varchar(11)='17/04/2008'
+            </p>
+            <p>
+                SELECT DATEDIFF(YEAR, CONVERT(DATE, @nasc, 103), GETDATE()) AS Idade
+            </p>
+            <br>
+            <strong>EXPLICAÇÃO :</strong>
+            <p>
+                A função DATEDIFF retorna a diferença entre duas datas em um determinado intervalo, neste caso o intervalo é em anos (YEAR). A primeira data é convertida para o tipo DATE usando a função CONVERT, com o formato 103 que representa dd/mm/yyyy. A segunda data é a data atual, obtida pela função GETDATE(). O resultado é exibido na coluna Idade.
+            </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!--MODAL CONSULTA SQL-->
+
+<!--MODAL CRÉDITOS-->
+<div class="modal" id="creditos" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Créditos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+            <span><strong>Obrigado !</strong></span>
+            <br>
+            <a href="https://jhonatanmedeiros.vercel.app/" target="_blank" rel="noopener noreferrer">Site Portifólio</a>
+            <br>
+            <small>Copyright © 2023 JhonMeddev</small>                      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!--MODAL CRÉDITOS-->
+    
+      
+</body>
+<!--JQUERY-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--BOOTSTRAP-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!--API FileSaver.js para salvar arquivos-->
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+<script src="script.js"></script>
+</html>
+
+
+
